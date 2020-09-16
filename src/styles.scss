@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bulma/bulma.sass';
+@import './my-styles.scss';
+
+html, body, main {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: #2f3542;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+main {
+    max-width: 920px;
+    margin: 0 auto;
+    color: white;
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        color: #FFDD57;
+    }
+}
