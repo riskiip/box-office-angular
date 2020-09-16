@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { Component, Input, OnDestroy, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { Movie } from "src/app/models/movie.model";
 import { MovieServiceService } from "src/app/services/movie-service.service";
@@ -16,18 +16,27 @@ export class MovieDetailComponent implements OnInit, OnDestroy{
 
   constructor(
     private movieService: MovieServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
+    this.loadSpecificMovie();
+  }
+  
+  loadSpecificMovie() {
     // GET ID FROM THE MOVIE
     this.id = +this.route.snapshot.paramMap.get("id");
-
+  
     // Subscription each movie when we click
     this.movieSubs$ = this.movieService.movie(this.id).subscribe((movie) => {
       this.movieModel = movie;
       console.log(movie);
     });
+  }
+
+  goBack() {
+    this.router.navigateByUrl('');
   }
 
   ngOnDestroy() {
