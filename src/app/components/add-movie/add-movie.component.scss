@@ -1,0 +1,30 @@
+form {
+    font-family: 'Lato';
+
+    .field {
+        margin-top: 20px;
+        width: 600px;        
+        
+        label {
+            color: white;
+        }
+
+        input {
+            box-shadow: 5px 5px 0px #e6c74f;
+            border-radius: 30px;
+            padding: 20px;
+        }
+
+    }
+
+    h1 {
+        font-size: 24px;
+        text-transform: uppercase;
+    }
+
+    button {
+        margin-top: 20px;
+        margin-right: 10px;
+        border-radius: 30px;
+    }
+}
