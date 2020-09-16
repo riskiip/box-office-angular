@@ -1,33 +1,33 @@
-<form [formGroup]="addMovieForm" (ngSubmit)="insertMovie()">
+<form [formGroup]="addMovieForm">
     <h1>Tambah Koleksi Film</h1>
     <div class="field">
         <label class="label">Nama Film</label>
         <div class="control">
-            <input class="input" type="text" placeholder="ex. Iron Man">
+            <input class="input" type="text" placeholder="ex. Iron Man" formControlName="name">
         </div>
     </div>
 
     <div class="field">
         <label class="label">Genre</label>
         <div class="control">
-            <input class="input" type="email" placeholder="ex. Action">
+            <input class="input" type="email" placeholder="ex. Action" formControlName="genre">
         </div>
     </div>
 
     <div class="field">
         <label class="label">Thumbnail</label>
         <div class="control">
-            <input class="input" type="text" placeholder="">
+            <input class="input" type="text" placeholder="" formControlName="image">
         </div>
     </div>
 
     <div class="field">
         <label class="label">Tahun Rilis</label>
         <div class="control">
-            <input class="input" type="number" placeholder="ex. 2018">
+            <input class="input" type="number" placeholder="ex. 2018" formControlName="releaseYear">
         </div>
     </div>
 
-    <button type="submit" class="button is-info">Tambah</button>
+    <button class="button is-info" (click)="insertMovie()" [disabled]="!addMovieForm.valid">Tambah</button>
     <button routerLink="/" class="button">Kembali</button>
 </form>
