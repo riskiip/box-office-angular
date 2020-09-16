@@ -31,7 +31,7 @@ export class MovieDetailComponent implements OnInit, OnDestroy{
     this.id = +this.route.snapshot.paramMap.get("id");
   
     // Subscription each movie when we click
-    this.movieSubs$ = this.movieService.movie(this.id).subscribe((movie) => {
+    this.movieSubs$ = this.movieService.movieFromUrl(this.id).subscribe((movie) => {
       this.movieModel = movie;
       this.navbar.title.next(movie.name);
       console.log(movie);
